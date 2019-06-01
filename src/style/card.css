@@ -116,3 +116,10 @@
     pointer-events: none;
     color: #4caf50;
 }
+
+@media(max-width: 900px) {
+    .card-container-1 {
+        margin-bottom: 3rem;
+        margin-right: 0;
+    }
+}
