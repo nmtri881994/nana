@@ -41,7 +41,7 @@ const Index = (props) => {
                     </div>
                 </div>
                 <div className="index-cards-container-1">
-                    <Cards mode="view" cards={items} />
+                    {items.length !== 0 ? <Cards mode="view" cards={items} /> : null}
                 </div>
             </div>
         </MainLayout>
