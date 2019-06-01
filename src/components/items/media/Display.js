@@ -35,8 +35,7 @@ const Display = (props) => {
                         <img className="media-image" srcSet={`${props.media.contentLink} 500w`} sizes="40vh" />
                         : props.media.type === "video" ?
                             <video width="800" controls>
-                                <source src="mov_bbb.mp4" type="video/mp4" />
-                                <source src="mov_bbb.ogg" type="video/ogg" />
+                                <source src={`${props.media.contentLink}`} type="video/mp4" />
                                 Your browser does not support HTML5 video.
                       </video> : null}}
                 </div>

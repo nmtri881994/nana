@@ -55,7 +55,7 @@ const Card = (props) => {
             props.viewMedia({
                 name: props.item.title,
                 type: props.item.type,
-                contentLink: props.item.previewImageUrl
+                contentLink: props.item.type === "image" ? props.item.previewImageUrl : props.item.type === "video" ? props.item.fileURl : ""
             });
         }} className="card-thumbnail-container-1">
             <Thumbnail image={props.item.previewImageUrl} type={props.item.type} />
@@ -82,15 +82,15 @@ const Card = (props) => {
                     <ActionButton type="favorite" favorited={props.item.favorited} onClick={props.toggleFavorite} onClickAgrs={props.item.nasaId} />
                     <ActionButton type="remove" onClick={props.removeItem} onClickAgrs={props.item.nasaId} />
                     <ActionButton type="edit" onClick={onAddOrEdit} />
-                </div> : props.mode === "search" ? <div className={`card-search-action-container-1 ${props.item.added?"disabled":""}`} onClick={() => onAddOrEdit()}>
+                </div> : props.mode === "search" ? <div className={`card-search-action-container-1 ${props.item.added ? "disabled" : ""}`} onClick={() => onAddOrEdit()}>
 
                     <span>{props.item.added ? "Added" : "Add to Nasa collection"}</span>
-                <div className="add-to-collection-button-icon">
-                    <FontAwesomeIcon icon={props.item.added ? faCheck : faPlus} />
-                </div>
-            </div> : null}
+                    <div className="add-to-collection-button-icon">
+                        <FontAwesomeIcon icon={props.item.added ? faCheck : faPlus} />
+                    </div>
+                </div> : null}
             </div>
-    </div>
+        </div>
     </div >);
 };
 
